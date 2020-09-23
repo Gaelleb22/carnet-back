@@ -1,5 +1,17 @@
 package dev.carnet.service;
 
-public class ConseilService {
+import org.springframework.stereotype.Service;
 
+import dev.carnet.repository.ConseilRepository;
+
+@Service
+public class ConseilService {
+	
+	private ConseilRepository conseilRepo;
+
+	/** Constructor */
+	public ConseilService(ConseilRepository conseilRepo) {
+		this.conseilRepo = conseilRepo;
+	}
+	
 }

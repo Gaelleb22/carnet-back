@@ -2,11 +2,14 @@ package dev.carnet.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+
 /**Citation
  * @author gaell
  *
  */
-public class Citation {
+@Entity
+public class Citation extends EntiteBase {
 	
 	private String auteur;
 	private LocalDate date;

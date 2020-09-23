@@ -2,22 +2,63 @@ package dev.carnet.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**Recette de cuisine
  * @author gaell
  *
  */
+@Entity
 public class Recette extends EntiteBase {
 	
+	/** nom */
 	private String nom;
-	private List<String> ingredients;
+	/** temps de préparation */
 	private int tempsPreparation;
-	private List<String> etapesPreparation;
+	/** cuisson */
 	private Boolean cuisson;
+	/** temps de cuisson */
 	private int tempsCuisson;
+	/** type de cuisson */
+	private TypeCuisson typeCuisson;
+	/** repos */
 	private Boolean repos;
-	private int tempsRepo;
+	/** temps de repos */
+	private int tempsRepos;
+	/** classement de 0 à 5 */
 	private int classement;
-	private List<String> astuces;
+	/** statut */
+	private Statut statut;
+	
+	@OneToMany(mappedBy = "recette",
+			cascade = CascadeType.ALL,
+	        orphanRemoval = true)
+	@JsonManagedReference
+	private List<Ingredient> ingredients;
+
+	@OneToMany(mappedBy = "recette",
+			cascade = CascadeType.ALL,
+	        orphanRemoval = true)
+	@JsonManagedReference
+	private List<EtapePreparation> etapesPreparation;
+
+	@OneToMany(mappedBy = "recette",
+			cascade = CascadeType.ALL,
+	        orphanRemoval = true)
+	@JsonManagedReference
+	private List<Astuce> astuces;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_uuid")
+	@JsonBackReference
+	private User user;
 	
 	
 	public String getNom() {
@@ -26,23 +67,11 @@ public class Recette extends EntiteBase {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public List<String> getIngredients() {
-		return ingredients;
-	}
-	public void setIngredients(List<String> ingredients) {
-		this.ingredients = ingredients;
-	}
 	public int getTempsPreparation() {
 		return tempsPreparation;
 	}
 	public void setTempsPreparation(int tempsPreparation) {
 		this.tempsPreparation = tempsPreparation;
-	}
-	public List<String> getEtapesPreparation() {
-		return etapesPreparation;
-	}
-	public void setEtapesPreparation(List<String> etapesPreparation) {
-		this.etapesPreparation = etapesPreparation;
 	}
 	public Boolean getCuisson() {
 		return cuisson;
@@ -62,11 +91,11 @@ public class Recette extends EntiteBase {
 	public void setRepos(Boolean repos) {
 		this.repos = repos;
 	}
-	public int getTempsRepo() {
-		return tempsRepo;
+	public int getTempsRepos() {
+		return tempsRepos;
 	}
-	public void setTempsRepo(int tempsRepo) {
-		this.tempsRepo = tempsRepo;
+	public void setTempsRepos(int tempsRepos) {
+		this.tempsRepos = tempsRepos;
 	}
 	public int getClassement() {
 		return classement;
@@ -74,12 +103,5 @@ public class Recette extends EntiteBase {
 	public void setClassement(int classement) {
 		this.classement = classement;
 	}
-	public List<String> getAstuces() {
-		return astuces;
-	}
-	public void setAstuces(List<String> astuces) {
-		this.astuces = astuces;
-	}
-	
 
 }

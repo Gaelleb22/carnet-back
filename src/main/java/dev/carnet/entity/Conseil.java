@@ -1,10 +1,13 @@
 package dev.carnet.entity;
 
+import javax.persistence.Entity;
+
 /**Conseil culinaire
  * @author gaell
  *
  */
-public class Conseil {
+@Entity
+public class Conseil extends EntiteBase {
 	
 	private String nom;
 	private String texte;

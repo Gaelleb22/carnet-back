@@ -3,12 +3,17 @@ package dev.carnet.entity;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 /**Super Classe de User et Recette
  * @author gaell
  *
  */
+@MappedSuperclass
 public class EntiteBase {
 	
+	@Id
 	private UUID uuid;
 	private LocalDate dateCreation;
 	
@@ -18,7 +23,6 @@ public class EntiteBase {
 	 * @param dateCreation
 	 */
 	public EntiteBase() {
-		super();
 		this.uuid = UUID.randomUUID();
 		this.dateCreation = LocalDate.now();
 	}
