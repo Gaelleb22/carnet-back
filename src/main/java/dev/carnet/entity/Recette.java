@@ -3,6 +3,7 @@ package dev.carnet.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,16 +22,20 @@ public class Recette extends EntiteBase {
 	/** nom */
 	private String nom;
 	/** temps de préparation */
+	@Column(name = "temps_preparation")
 	private int tempsPreparation;
 	/** cuisson */
 	private Boolean cuisson;
 	/** temps de cuisson */
+	@Column(name = "temps_cuisson")
 	private int tempsCuisson;
 	/** type de cuisson */
+	@Column(name = "type_cuisson")
 	private TypeCuisson typeCuisson;
 	/** repos */
 	private Boolean repos;
 	/** temps de repos */
+	@Column(name = "temps_repos")
 	private int tempsRepos;
 	/** classement de 0 à 5 */
 	private int classement;

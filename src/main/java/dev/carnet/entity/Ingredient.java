@@ -14,18 +14,18 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Ingredient extends EntiteBase {
 	
 	private String nom;
-	private String quantité;
+	private String quantite;
 	
 	@ManyToOne
 	@JoinColumn(name = "recette_uuid")
 	@JsonBackReference
 	private Recette recette;
 
-	public String getQuantité() {
-		return quantité;
+	public String getQuantite() {
+		return quantite;
 	}
-	public void setQuantité(String quantité) {
-		this.quantité = quantité;
+	public void setQuantite(String quantite) {
+		this.quantite = quantite;
 	}
 	public String getNom() {
 		return nom;

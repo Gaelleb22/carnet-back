@@ -5,5 +5,5 @@ package dev.carnet.entity;
  *
  */
 public enum TypeCuisson {
-	FOUR, MICRO_ONDE, GAZ, BARBECUE
+	FOUR, MICRO_ONDE, GAZ, BARBECUE, MULTI
 }
