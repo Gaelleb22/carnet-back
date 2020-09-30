@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  *
  */
 @Entity
-public class User extends EntiteBase{ 
+public class AppliUser extends EntiteBase{ 
 	
 	/** pseudo utilisé pour connexion */
 	private String pseudo;

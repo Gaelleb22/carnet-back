@@ -63,7 +63,7 @@ public class Recette extends EntiteBase {
 	@ManyToOne
 	@JoinColumn(name = "user_uuid")
 	@JsonBackReference
-	private User user;
+	private AppliUser user;
 	
 	
 	public String getNom() {
