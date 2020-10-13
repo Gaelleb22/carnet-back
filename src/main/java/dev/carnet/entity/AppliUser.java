@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -13,12 +14,17 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  *
  */
 @Entity
+@Table(name = "user")
 public class AppliUser extends EntiteBase{ 
 	
 	/** pseudo utilisé pour connexion */
 	private String pseudo;
+	
 	/** mot de passe utilisé pour connexion */
 	private String password;
+	
+	/** roles */
+	private Role role;
 	
 	@OneToMany(mappedBy = "user",
 			cascade = CascadeType.ALL,
@@ -37,6 +43,18 @@ public class AppliUser extends EntiteBase{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	public List<Recette> getRecettes() {
+		return recettes;
+	}
+	public void setRecettes(List<Recette> recettes) {
+		this.recettes = recettes;
 	}
 	
 }

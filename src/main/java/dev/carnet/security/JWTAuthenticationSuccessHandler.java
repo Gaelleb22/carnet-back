@@ -66,8 +66,13 @@ public class JWTAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucc
         response.setContentType("application/json");
         response.getWriter().write(mapper.writeValueAsString(new UserDao(appliUser)));
 
+        Map<String, Object> infosSupplementaireToken = new HashMap<>();
+        infosSupplementaireToken.put("roles", rolesList);
+        LOG.info("roles {} ", infosSupplementaireToken);
+
         String jws = Jwts.builder()
                 .setSubject(user.getUsername())
+                .addClaims(infosSupplementaireToken)
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRES_IN * 1000))
                 .signWith(io.jsonwebtoken.SignatureAlgorithm.HS512, SECRET)
                 .compact();

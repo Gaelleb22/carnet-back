@@ -15,12 +15,12 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "user1",
+							"value": "Moi",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "password",
+							"value": "superpass",
 							"type": "text"
 						}
 					],
@@ -42,6 +42,49 @@
 					]
 				},
 				"description": "Authentification à la Web API"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/versions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "user1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "superpass",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/versions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"versions"
+					]
+				},
+				"description": "Lister les versions"
 			},
 			"response": []
 		}

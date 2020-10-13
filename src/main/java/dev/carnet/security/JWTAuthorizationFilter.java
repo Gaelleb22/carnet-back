@@ -52,7 +52,9 @@ public class JWTAuthorizationFilter  extends OncePerRequestFilter {
 
                             String username = body.getSubject();
 
-                            Authentication authentication =  new UsernamePasswordAuthenticationToken(username, null);
+                            List<SimpleGrantedAuthority> roles = Arrays.stream(body.get("roles", String.class).split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+
+                            Authentication authentication =  new UsernamePasswordAuthenticationToken(username, null, roles);
                             SecurityContextHolder.getContext().setAuthentication(authentication);
                         } catch (JwtException e) {
                             // En cas d'erreur de lecture du jeton, la requête n'est pas authentifiée et n'aura pas accès aux ressources sécurisées

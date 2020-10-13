@@ -1,6 +1,9 @@
 package dev.carnet.dao;
 
+import java.util.UUID;
+
 import dev.carnet.entity.AppliUser;
+import dev.carnet.entity.Role;
 
 /**Modélisation d'un utilisateur
  * @author gaell
@@ -8,12 +11,14 @@ import dev.carnet.entity.AppliUser;
  */
 public class UserDao {
 	
+	private UUID uuid;
 	private String pseudo;
-	private String password;
+	private Role role;
 	
 	public UserDao(AppliUser appliUser) {
+		this.uuid = appliUser.getUuid();
 		this.pseudo = appliUser.getPseudo();
-		this.password = appliUser.getPassword();
+		this.role = appliUser.getRole();
 	}
 
 	public String getPseudo() {
@@ -24,12 +29,21 @@ public class UserDao {
 		this.pseudo = pseudo;
 	}
 
-	public String getPassword() {
-		return password;
+	public UUID getUuid() {
+		return uuid;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUuid(UUID uuid) {
+		this.uuid = uuid;
 	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 
 }

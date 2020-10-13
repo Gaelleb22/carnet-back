@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         JdbcUserDetailsManager manager = new JdbcUserDetailsManager();
         manager.setDataSource(ds);
         manager.setUsersByUsernameQuery("select pseudo, password, 'true' from user where pseudo=?");
-        manager.setAuthoritiesByUsernameQuery("select pseudo from user u where u.pseudo=?");
+        manager.setAuthoritiesByUsernameQuery("select pseudo, role from user u where u.pseudo=?");
         return manager;
     }
 
