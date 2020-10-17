@@ -3,10 +3,10 @@ insert into user (uuid, pseudo, password, role) values ('283fae3e9e3747fb9233c3f
 insert into user (uuid, pseudo, password, role) values ('f0442be9138b4174b07bb8588b24830f', 'Toi', '$2a$10$ITGbhbClrE.GKjlXX/d/zuhSgpW1xUCV3P7CCIO3dwEELwgVBxXYC', 0);
 
 --recette
-insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid) values ('12625d8b322b484f81aa4767d2f812c8', 'fondant au chocolat', 60, TRUE, 30, 0, FALSE, 5, 1, '283fae3e9e3747fb9233c3ff8b5abfe8');
-insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid) values ('f1f9250f4d354d5ab7b0ff064d8c3717', 'soupe de potiron', 45, TRUE, 30, 2, FALSE, 3, 0, '283fae3e9e3747fb9233c3ff8b5abfe8');
-insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, repos, classement, statut, user_uuid) values ('ae618596420c49d1a28a220be06defd1', 'glaçage au beurre', 15, FALSE, 0, FALSE, 2, 0, 'f0442be9138b4174b07bb8588b24830f');
-insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid) values ('22eef239cede4b658c7c957dca52b1ed', 'langue de chat', 30, TRUE, 9, 0, FALSE, 4, 0, 'f0442be9138b4174b07bb8588b24830f');
+insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos) values ('12625d8b322b484f81aa4767d2f812c8', 'fondant au chocolat', 60, TRUE, 30, 0, FALSE, 5, 1, '283fae3e9e3747fb9233c3ff8b5abfe8', 0);
+insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos) values ('f1f9250f4d354d5ab7b0ff064d8c3717', 'soupe de potiron', 45, TRUE, 30, 2, FALSE, 3, 0, '283fae3e9e3747fb9233c3ff8b5abfe8', 0);
+insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, repos, classement, statut, user_uuid, temps_repos) values ('ae618596420c49d1a28a220be06defd1', 'glaçage au beurre', 15, FALSE, 0, FALSE, 2, 0, 'f0442be9138b4174b07bb8588b24830f', 0);
+insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos) values ('22eef239cede4b658c7c957dca52b1ed', 'langue de chat', 30, TRUE, 9, 0, FALSE, 4, 0, 'f0442be9138b4174b07bb8588b24830f', 0);
 
 --ingrédients
 insert into ingredient (uuid, nom, quantite, recette_uuid) values ('231cd90af62b4ac281125ba25ea420db', 'oeuf', '2', '12625d8b322b484f81aa4767d2f812c8');

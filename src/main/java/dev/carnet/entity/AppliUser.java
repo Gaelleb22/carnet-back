@@ -1,5 +1,6 @@
 package dev.carnet.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,7 +31,7 @@ public class AppliUser extends EntiteBase{
 			cascade = CascadeType.ALL,
 	        orphanRemoval = true)
 	@JsonManagedReference
-	private List<Recette> recettes;
+	private List<Recette> recettes = new ArrayList<Recette>();
 	
 	public String getPseudo() {
 		return pseudo;

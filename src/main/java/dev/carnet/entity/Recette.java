@@ -108,5 +108,41 @@ public class Recette extends EntiteBase {
 	public void setClassement(int classement) {
 		this.classement = classement;
 	}
+	public TypeCuisson getTypeCuisson() {
+		return typeCuisson;
+	}
+	public void setTypeCuisson(TypeCuisson typeCuisson) {
+		this.typeCuisson = typeCuisson;
+	}
+	public Statut getStatut() {
+		return statut;
+	}
+	public void setStatut(Statut statut) {
+		this.statut = statut;
+	}
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+	public List<EtapePreparation> getEtapesPreparation() {
+		return etapesPreparation;
+	}
+	public void setEtapesPreparation(List<EtapePreparation> etapesPreparation) {
+		this.etapesPreparation = etapesPreparation;
+	}
+	public List<Astuce> getAstuces() {
+		return astuces;
+	}
+	public void setAstuces(List<Astuce> astuces) {
+		this.astuces = astuces;
+	}
+	public AppliUser getUser() {
+		return user;
+	}
+	public void setUser(AppliUser user) {
+		this.user = user;
+	}
 
 }
