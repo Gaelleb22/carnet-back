@@ -1,4 +1,4 @@
-package dev.carnet.dao;
+package dev.carnet.dto;
 
 import java.util.UUID;
 

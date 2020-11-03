@@ -1,6 +1,7 @@
 package dev.carnet.service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,10 @@ public class AppliUserService {
 	
 	public Optional<AppliUser> findByPseudo(String pseudo){
 		return userRepo.findByPseudo(pseudo);
+	}
+	
+	public Optional<AppliUser> findByUuid(UUID uuid) {
+		return userRepo.findById(uuid);
 	}
 	
 }

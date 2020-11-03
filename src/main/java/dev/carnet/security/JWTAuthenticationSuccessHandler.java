@@ -2,7 +2,7 @@ package dev.carnet.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dev.carnet.dao.UserDao;
+import dev.carnet.dto.UserDao;
 import dev.carnet.entity.AppliUser;
 import dev.carnet.repository.AppliUserRepository;
 import io.jsonwebtoken.Jwts;

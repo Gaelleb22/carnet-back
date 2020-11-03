@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  *
  */
 @Entity
-@Table(name = "user")
+@Table(name = "utilisateur")
 public class AppliUser extends EntiteBase{ 
 	
 	/** pseudo utilisé pour connexion */

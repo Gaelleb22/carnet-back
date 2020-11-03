@@ -1,12 +1,18 @@
 --user
-insert into user (uuid, pseudo, password, role) values ('283fae3e9e3747fb9233c3ff8b5abfe8', 'Moi', '$2a$10$EwNV3Q04aEq/YPd2CSn/IOeaI9qtYxAy8I3jNBj0.IHoeDBEMnmHC', 1);
-insert into user (uuid, pseudo, password, role) values ('f0442be9138b4174b07bb8588b24830f', 'Toi', '$2a$10$ITGbhbClrE.GKjlXX/d/zuhSgpW1xUCV3P7CCIO3dwEELwgVBxXYC', 0);
+insert into utilisateur (uuid, pseudo, password, role) values ('283fae3e9e3747fb9233c3ff8b5abfe8', 'Moi', '$2a$10$EwNV3Q04aEq/YPd2CSn/IOeaI9qtYxAy8I3jNBj0.IHoeDBEMnmHC', 1);
+insert into utilisateur (uuid, pseudo, password, role) values ('f0442be9138b4174b07bb8588b24830f', 'Toi', '$2a$10$ITGbhbClrE.GKjlXX/d/zuhSgpW1xUCV3P7CCIO3dwEELwgVBxXYC', 0);
 
 --recette
-insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos) values ('12625d8b322b484f81aa4767d2f812c8', 'fondant au chocolat', 60, TRUE, 30, 0, FALSE, 5, 1, '283fae3e9e3747fb9233c3ff8b5abfe8', 0);
-insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos) values ('f1f9250f4d354d5ab7b0ff064d8c3717', 'soupe de potiron', 45, TRUE, 30, 2, FALSE, 3, 0, '283fae3e9e3747fb9233c3ff8b5abfe8', 0);
-insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, repos, classement, statut, user_uuid, temps_repos) values ('ae618596420c49d1a28a220be06defd1', 'glaçage au beurre', 15, FALSE, 0, FALSE, 2, 0, 'f0442be9138b4174b07bb8588b24830f', 0);
-insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos) values ('22eef239cede4b658c7c957dca52b1ed', 'langue de chat', 30, TRUE, 9, 0, FALSE, 4, 0, 'f0442be9138b4174b07bb8588b24830f', 0);
+--insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos, url_photo, quantite, label) values ('12625d8b322b484f81aa4767d2f812c8', 'fondant au chocolat', 60, TRUE, 30, 0, FALSE, 5, 1, '283fae3e9e3747fb9233c3ff8b5abfe8', 0, './assets/card-defaut.JPG', 20, 2);
+--insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos, url_photo, quantite, label) values ('f1f9250f4d354d5ab7b0ff064d8c3717', 'soupe de potiron', 45, TRUE, 30, 2, FALSE, 3, 0, '283fae3e9e3747fb9233c3ff8b5abfe8', 0, './assets/test.JPG', 6, 0);
+--insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, repos, classement, statut, user_uuid, temps_repos, url_photo, quantite, label) values ('ae618596420c49d1a28a220be06defd1', 'glaçage au beurre', 15, FALSE, 0, FALSE, 2, 0, 'f0442be9138b4174b07bb8588b24830f', 0, './assets/card-defaut.JPG', 1, 2);
+--insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos, url_photo, quantite, label) values ('22eef239cede4b658c7c957dca52b1ed', 'langue de chat', 30, TRUE, 9, 0, FALSE, 4, 0, 'f0442be9138b4174b07bb8588b24830f', 0, './assets/card-defaut.JPG', 30, 2);
+
+insert into recette (uuid, nom, temps_preparation, temps_cuisson, classement, statut, user_uuid, url_photo, quantite, label) values ('12625d8b322b484f81aa4767d2f812c8', 'fondant au chocolat', 60, 30, 5, 1, '283fae3e9e3747fb9233c3ff8b5abfe8', './assets/card-defaut.JPG', 20, 2);
+insert into recette (uuid, nom, temps_preparation, temps_cuisson, classement, statut, user_uuid, url_photo, quantite, label) values ('f1f9250f4d354d5ab7b0ff064d8c3717', 'soupe de potiron', 45, 30, 3, 0, '283fae3e9e3747fb9233c3ff8b5abfe8', './assets/test.JPG', 6, 0);
+insert into recette (uuid, nom, temps_preparation, temps_cuisson, classement, statut, user_uuid, url_photo, quantite, label) values ('ae618596420c49d1a28a220be06defd1', 'glaçage au beurre', 15, 0, 2, 0, 'f0442be9138b4174b07bb8588b24830f', './assets/card-defaut.JPG', 1, 2);
+insert into recette (uuid, nom, temps_preparation, temps_cuisson, classement, statut, user_uuid, url_photo, quantite, label) values ('22eef239cede4b658c7c957dca52b1ed', 'langue de chat', 30, 9, 4, 0, 'f0442be9138b4174b07bb8588b24830f', './assets/card-defaut.JPG', 30, 2);
+
 
 --ingrédients
 insert into ingredient (uuid, nom, quantite, recette_uuid) values ('231cd90af62b4ac281125ba25ea420db', 'oeuf', '2', '12625d8b322b484f81aa4767d2f812c8');
@@ -21,9 +27,9 @@ insert into ingredient (uuid, nom, quantite, recette_uuid) values ('000ef271f4e9
 insert into ingredient (uuid, nom, quantite, recette_uuid) values ('0f4b94b13dfa463f8076f101033569d2', 'oignon', '1', 'f1f9250f4d354d5ab7b0ff064d8c3717');
 
 --étapes
-insert into etapes (uuid, texte, recette_uuid) values ('c941d7658c994a81979078eb262efe7b', 'Eplucher et couper l''oignon et le potimaron.', 'f1f9250f4d354d5ab7b0ff064d8c3717');
-insert into etapes (uuid, texte, recette_uuid) values ('016e30e4f69b4be1af68085202206106', 'Faire cuire 30 min dans une casserole avec de l''eau.', 'f1f9250f4d354d5ab7b0ff064d8c3717');
-insert into etapes (uuid, texte, recette_uuid) values ('4710a4aa2bef4c84ab1c8d2525a00f95', 'Retirer du feu et mixer la soupe.', 'f1f9250f4d354d5ab7b0ff064d8c3717');
+insert into etape (uuid, texte, recette_uuid) values ('c941d7658c994a81979078eb262efe7b', 'Eplucher et couper l''oignon et le potimaron.', 'f1f9250f4d354d5ab7b0ff064d8c3717');
+insert into etape (uuid, texte, recette_uuid) values ('016e30e4f69b4be1af68085202206106', 'Faire cuire 30 min dans une casserole avec de l''eau.', 'f1f9250f4d354d5ab7b0ff064d8c3717');
+insert into etape (uuid, texte, recette_uuid) values ('4710a4aa2bef4c84ab1c8d2525a00f95', 'Retirer du feu et mixer la soupe.', 'f1f9250f4d354d5ab7b0ff064d8c3717');
 
 --astuce
 insert into astuce (uuid, astuce, recette_uuid) values ('961ecefe58224a868d5d426fd647d43e', 'Ajouter un cube de légume pour plus de goût !', 'f1f9250f4d354d5ab7b0ff064d8c3717');

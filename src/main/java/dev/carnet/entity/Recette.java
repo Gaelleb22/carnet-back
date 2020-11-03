@@ -24,23 +24,30 @@ public class Recette extends EntiteBase {
 	/** temps de préparation */
 	@Column(name = "temps_preparation")
 	private int tempsPreparation;
-	/** cuisson */
-	private Boolean cuisson;
+	/** cuisson 
+	private Boolean cuisson;*/
 	/** temps de cuisson */
 	@Column(name = "temps_cuisson")
 	private int tempsCuisson;
-	/** type de cuisson */
+	/** type de cuisson 
 	@Column(name = "type_cuisson")
-	private TypeCuisson typeCuisson;
-	/** repos */
-	private Boolean repos;
-	/** temps de repos */
+	private TypeCuisson typeCuisson;*/
+	/** repos 
+	private Boolean repos;*/
+	/** temps de repos 
 	@Column(name = "temps_repos")
-	private int tempsRepos;
+	private int tempsRepos;*/
 	/** classement de 0 à 5 */
 	private int classement;
 	/** statut */
 	private Statut statut;
+	/** quantité */
+	private int quantite;
+	/** label quantité */
+	private LabelQuantite label;
+	/** url photo */
+	@Column(name = "url_photo")
+	private String urlPhoto;
 	
 	@OneToMany(mappedBy = "recette",
 			cascade = CascadeType.ALL,
@@ -52,7 +59,7 @@ public class Recette extends EntiteBase {
 			cascade = CascadeType.ALL,
 	        orphanRemoval = true)
 	@JsonManagedReference
-	private List<EtapePreparation> etapesPreparation;
+	private List<Etape> etapes;
 
 	@OneToMany(mappedBy = "recette",
 			cascade = CascadeType.ALL,
@@ -78,18 +85,21 @@ public class Recette extends EntiteBase {
 	public void setTempsPreparation(int tempsPreparation) {
 		this.tempsPreparation = tempsPreparation;
 	}
-	public Boolean getCuisson() {
-		return cuisson;
-	}
-	public void setCuisson(Boolean cuisson) {
-		this.cuisson = cuisson;
-	}
 	public int getTempsCuisson() {
 		return tempsCuisson;
 	}
 	public void setTempsCuisson(int tempsCuisson) {
 		this.tempsCuisson = tempsCuisson;
 	}
+	
+	/**
+	public Boolean getCuisson() {
+		return cuisson;
+	}
+	public void setCuisson(Boolean cuisson) {
+		this.cuisson = cuisson;
+	}
+	
 	public Boolean getRepos() {
 		return repos;
 	}
@@ -102,17 +112,18 @@ public class Recette extends EntiteBase {
 	public void setTempsRepos(int tempsRepos) {
 		this.tempsRepos = tempsRepos;
 	}
-	public int getClassement() {
-		return classement;
-	}
-	public void setClassement(int classement) {
-		this.classement = classement;
-	}
 	public TypeCuisson getTypeCuisson() {
 		return typeCuisson;
 	}
 	public void setTypeCuisson(TypeCuisson typeCuisson) {
 		this.typeCuisson = typeCuisson;
+	}*/
+	
+	public int getClassement() {
+		return classement;
+	}
+	public void setClassement(int classement) {
+		this.classement = classement;
 	}
 	public Statut getStatut() {
 		return statut;
@@ -126,12 +137,6 @@ public class Recette extends EntiteBase {
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
-	public List<EtapePreparation> getEtapesPreparation() {
-		return etapesPreparation;
-	}
-	public void setEtapesPreparation(List<EtapePreparation> etapesPreparation) {
-		this.etapesPreparation = etapesPreparation;
-	}
 	public List<Astuce> getAstuces() {
 		return astuces;
 	}
@@ -143,6 +148,30 @@ public class Recette extends EntiteBase {
 	}
 	public void setUser(AppliUser user) {
 		this.user = user;
+	}
+	public String getUrlPhoto() {
+		return urlPhoto;
+	}
+	public void setUrlPhoto(String urlPhoto) {
+		this.urlPhoto = urlPhoto;
+	}
+	public List<Etape> getEtapes() {
+		return etapes;
+	}
+	public void setEtapes(List<Etape> etapes) {
+		this.etapes = etapes;
+	}
+	public int getQuantite() {
+		return quantite;
+	}
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+	public LabelQuantite getLabel() {
+		return label;
+	}
+	public void setLabel(LabelQuantite label) {
+		this.label = label;
 	}
 
 }
