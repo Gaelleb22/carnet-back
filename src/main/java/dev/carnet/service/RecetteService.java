@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import dev.carnet.entity.AppliUser;
+import dev.carnet.entity.Ingredient;
 import dev.carnet.entity.LabelQuantite;
 import dev.carnet.entity.Recette;
 import dev.carnet.entity.Statut;
@@ -30,6 +33,7 @@ public class RecetteService {
 		return recetteRepo.findAll();
 	}
 	
+	@Transactional
 	public Recette creer(String nom, int tempsPreparation, int tempsCuisson, int classement, Statut statut, int quantite, 
 			LabelQuantite label, String urlPhoto, AppliUser user) {
 		Recette recette = new Recette();

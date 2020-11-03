@@ -1,5 +1,6 @@
 package dev.carnet.controler;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -20,13 +21,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.carnet.dto.CreerIngredientDto;
 import dev.carnet.dto.CreerRecetteDto;
 import dev.carnet.entity.AppliUser;
+import dev.carnet.entity.Ingredient;
 import dev.carnet.entity.LabelQuantite;
 import dev.carnet.entity.Recette;
 import dev.carnet.entity.Statut;
 import dev.carnet.exception.UserNotFoundException;
 import dev.carnet.service.AppliUserService;
+import dev.carnet.service.IngredientService;
 import dev.carnet.service.RecetteService;
 
 @RestController
@@ -36,12 +40,14 @@ public class RecetteControler {
 	
 	private RecetteService recetteService;
 	private AppliUserService userService;
+	private IngredientService ingredientService;
 	
 	Logger logger = Logger.getLogger(RecetteControler.class.getName());
 	
-	public RecetteControler(RecetteService recetteService, AppliUserService userService) {
+	public RecetteControler(RecetteService recetteService, AppliUserService userService, IngredientService ingredientService) {
 		this.recetteService = recetteService;
 		this.userService = userService;
+		this.ingredientService = ingredientService;
 	}
 	
 	//get user connecté
@@ -79,12 +85,21 @@ public class RecetteControler {
 	@Secured(value = "ROLE_UTILISATEUR, ROLE_ADMINISTRATEUR")
 	public ResponseEntity<?> postNewRecette(@RequestBody @Valid CreerRecetteDto recetteDto, BindingResult result) {
 		
-		return ResponseEntity.ok(recetteService.creer(
+		Recette nouvelleRecette = recetteService.creer(
 				recetteDto.getNom(), recetteDto.getTempsPreparation(), recetteDto.getTempsCuisson(),
 				recetteDto.getClassement(), 
 				Statut.valueOf(recetteDto.getStatut()), recetteDto.getQuantite(), 
 				LabelQuantite.valueOf(recetteDto.getLabel()),
-				recetteDto.getUrlPhoto(), this.findUserConnecte().get()));
+				recetteDto.getUrlPhoto(), this.findUserConnecte().get());
+		
+		List<Ingredient> ingredients = new ArrayList<>();
+		for(CreerIngredientDto ing : recetteDto.getIngredients()) {
+			ingredients.add(ingredientService.creer(ing.getNom(), ing.getQuantite(), nouvelleRecette));
+		}
+		
+		nouvelleRecette.setIngredients(ingredients);
+		
+		return ResponseEntity.ok(nouvelleRecette);
 	}
 	
 	// Update updateRecette() (seulement possible avec ses propres recettes)

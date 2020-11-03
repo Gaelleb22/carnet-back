@@ -1,5 +1,6 @@
 package dev.carnet.dto;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.constraints.Max;
@@ -70,6 +71,10 @@ public class CreerRecetteDto {
 	@JsonProperty("url")
 	private String urlPhoto;
 	
+	/** liste d'ingrétients */
+	@JsonProperty("ingredients")
+	private List<CreerIngredientDto> ingredients;
+	
 
 	public String getNom() {
 		return nom;
@@ -133,6 +138,14 @@ public class CreerRecetteDto {
 
 	public void setUrlPhoto(String urlPhoto) {
 		this.urlPhoto = urlPhoto;
+	}
+
+	public List<CreerIngredientDto> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<CreerIngredientDto> ingredients) {
+		this.ingredients = ingredients;
 	}
 
 }

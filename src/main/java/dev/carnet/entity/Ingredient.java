@@ -33,5 +33,12 @@ public class Ingredient extends EntiteBase {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+	public Recette getRecette() {
+		return recette;
+	}
+	public void setRecette(Recette recette) {
+		this.recette = recette;
+	}
+	
 	
 }
