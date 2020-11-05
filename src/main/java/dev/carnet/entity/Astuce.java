@@ -26,5 +26,11 @@ public class Astuce extends EntiteBase {
 	public void setAstuce(String astuce) {
 		this.astuce = astuce;
 	}
+	public Recette getRecette() {
+		return recette;
+	}
+	public void setRecette(Recette recette) {
+		this.recette = recette;
+	}
 
 }

@@ -75,6 +75,13 @@ public class CreerRecetteDto {
 	@JsonProperty("ingredients")
 	private List<CreerIngredientDto> ingredients;
 	
+	/** liste d'étape de préparation */
+	@JsonProperty("etapes")
+	private List<CreerEtapeDto> etapes;
+	
+	/** liste d'astuces */
+	@JsonProperty("astuces")
+	private List<CreerAstuceDto> astuces;
 
 	public String getNom() {
 		return nom;
@@ -146,6 +153,22 @@ public class CreerRecetteDto {
 
 	public void setIngredients(List<CreerIngredientDto> ingredients) {
 		this.ingredients = ingredients;
+	}
+
+	public List<CreerEtapeDto> getEtapes() {
+		return etapes;
+	}
+
+	public void setEtapes(List<CreerEtapeDto> etapes) {
+		this.etapes = etapes;
+	}
+
+	public List<CreerAstuceDto> getAstuces() {
+		return astuces;
+	}
+
+	public void setAstuces(List<CreerAstuceDto> astuces) {
+		this.astuces = astuces;
 	}
 
 }

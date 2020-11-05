@@ -26,5 +26,11 @@ public class Etape extends EntiteBase {
 	public void setTexte(String texte) {
 		this.texte = texte;
 	}
+	public Recette getRecette() {
+		return recette;
+	}
+	public void setRecette(Recette recette) {
+		this.recette = recette;
+	}
 	
 }
