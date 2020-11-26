@@ -12,5 +12,7 @@ import dev.carnet.entity.AppliUser;
 public interface AppliUserRepository extends JpaRepository<AppliUser, UUID> {
 	
 	Optional<AppliUser> findByPseudo(String pseudo);
+	
+	Optional<AppliUser> findByEmail(String email);
 
 }

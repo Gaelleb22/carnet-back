@@ -1,6 +1,6 @@
 --user
-insert into utilisateur (uuid, pseudo, password, role) values ('283fae3e9e3747fb9233c3ff8b5abfe8', 'Moi', '$2a$10$EwNV3Q04aEq/YPd2CSn/IOeaI9qtYxAy8I3jNBj0.IHoeDBEMnmHC', 1);
-insert into utilisateur (uuid, pseudo, password, role) values ('f0442be9138b4174b07bb8588b24830f', 'Toi', '$2a$10$ITGbhbClrE.GKjlXX/d/zuhSgpW1xUCV3P7CCIO3dwEELwgVBxXYC', 0);
+insert into utilisateur (uuid, pseudo, password, role, email) values ('283fae3e9e3747fb9233c3ff8b5abfe8', 'Moi', '$2a$10$EwNV3Q04aEq/YPd2CSn/IOeaI9qtYxAy8I3jNBj0.IHoeDBEMnmHC', 1, 'moi@recette.org');
+insert into utilisateur (uuid, pseudo, password, role, email) values ('f0442be9138b4174b07bb8588b24830f', 'Toi', '$2a$10$ITGbhbClrE.GKjlXX/d/zuhSgpW1xUCV3P7CCIO3dwEELwgVBxXYC', 0, 'toi@recette.org');
 
 --recette
 --insert into recette (uuid, nom, temps_preparation, cuisson, temps_cuisson, type_cuisson, repos, classement, statut, user_uuid, temps_repos, url_photo, quantite, label) values ('12625d8b322b484f81aa4767d2f812c8', 'fondant au chocolat', 60, TRUE, 30, 0, FALSE, 5, 1, '283fae3e9e3747fb9233c3ff8b5abfe8', 0, './assets/card-defaut.JPG', 20, 2);

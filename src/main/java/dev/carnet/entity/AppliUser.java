@@ -24,6 +24,9 @@ public class AppliUser extends EntiteBase{
 	/** mot de passe utilisé pour connexion */
 	private String password;
 	
+	/** email*/
+	private String email;
+	
 	/** roles */
 	private Role role;
 	
@@ -56,6 +59,12 @@ public class AppliUser extends EntiteBase{
 	}
 	public void setRecettes(List<Recette> recettes) {
 		this.recettes = recettes;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }
